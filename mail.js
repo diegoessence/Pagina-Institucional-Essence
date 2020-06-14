@@ -28,6 +28,7 @@ const sendMail = (email, subject, text, empresa, name, cb) => {
     const mailOptions = {
         from: `${name} - Contato Através Site <contato.site@assessoriaessence.com.br>`, // TODO replace this with your own email
         to: "comercial@assessoriaessence.com.br",   // TODO: the receiver email has to be authorized for the free tier
+        replyTo: email,
         subject,
         html: `Nome: ${name} <br> Empresa: ${empresa} <br> e-mail: ${email} <br> <br> ${text}`,     
     };
