@@ -908,8 +908,8 @@
             //window.location.href = "/email/sent";
             window.alert("Email enviado com sucesso!")
           })
-          .catch(() => {
-            window.location.href = "/error";
+          .catch((ex) => {
+            window.alert(ex)
           });
       });
 
