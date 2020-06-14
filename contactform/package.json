@@ -1,0 +1,12 @@
+{
+  "name": "contactform",
+  "version": "1.0.0",
+  "description": "Fully working PHP/AJAX contact form is available in the pro version.\r You can buy it from: https://bootstrapmade.com/newbiz-bootstrap-business-template/",
+  "main": "contactform.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

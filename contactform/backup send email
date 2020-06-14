@@ -1,0 +1,34 @@
+function email_send(subject, text, email, nome, empresa ) {
+const nodemailer = require("nodemailer")
+
+let transporter = nodemailer.createTransport({
+    host: "smtp.zoho.com",
+    port: 465,
+    //secure = true,
+    auth: {
+        user: "contato.site@assessoriaessence.com.br",
+        pass: "@Site103020"
+    }
+})
+
+transporter.sendMail({
+    from: `Contato Site - ${empresa} <contato.site@assessoriaessence.com.br>`,
+    to: "comercial@assessoriaessence.com.br",
+    subject: subject,
+    html: `Nome: ${nome} <br> Empresa: ${empresa} <br> e-mail: ${email} <br> ${text}`
+    //text: text
+   
+}).then(message => {
+    console.log(message)
+}).catch(err => {
+    console.log(err)
+})
+
+}
+
+var send = email_send('Alvara de vigilancia sanitaria',
+                      'Olá me chamo patricia e gosta de mais informações sobre alvará',
+                      'paricia@uol.com.br',
+                      'Patricia Santos',
+                      'Beluga')
+
