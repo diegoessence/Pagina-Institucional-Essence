@@ -35,7 +35,7 @@ app.post('/email', (req, res) => {
 
 // Render home page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'index.html'));
+    res.sendFile(path.join(__dirname, '', 'index.html'));
 });
 
 // Error page
