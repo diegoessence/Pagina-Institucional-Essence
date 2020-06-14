@@ -24,13 +24,14 @@ const transporter = nodemailer.createTransport({
 
 var x = "comercial@assessoriaessence.com.br"
 
-const sendMail = (email, subject, text, cb) => {
+const sendMail = (email, subject, text, name, empresa, cb) => {
     const mailOptions = {
-        from: 'Teste <contato.site@assessoriaessence.com.br>', // TODO replace this with your own email
-        to: email, x,  // TODO: the receiver email has to be authorized for the free tier
+        from: 'Contato através site <contato.site@assessoriaessence.com.br>', // TODO replace this with your own email
+        to: "comercial@assessoriaessence.com.br",   // TODO: the receiver email has to be authorized for the free tier
         subject,
-        text
+        html: `Nome: ${name} <br> Empresa: ${empresa} <br> e-mail: ${email} <br> <br> ${text}`,     
     };
+
 
     transporter.sendMail(mailOptions, function (err, data) {
         if (err) {

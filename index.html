@@ -835,30 +835,29 @@
               <form action="" role="form" class="contactForm">
                 <div class="form-row">
                   <div class="form-group col-lg-6">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Seu Nome" data-rule="minlen:4" data-msg="Por favor, digite pelo menos 4 caracteres" />
                     <div class="validation"></div>
                   </div>
-                  
+              
                   <div class="form-group col-lg-6">
-                    <input type="email" class="form-control" name="empresa" id="empresa" placeholder="Sua Empresa" data-rule="" data-msg="Please enter a valid email" />
-                    <div class="validation"></div>
-                  </div>
-
-
-                  <div class="form-group col-lg-6">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu melhor email" data-rule="email" data-msg="Por favor, insira um e-mail válido" />
                     <div class="validation"></div>
                   </div>
                 </div>
+                
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <input type="text" name="empresa" class="form-control" id="empresa" placeholder="Sua Empresa" data-rule="minlen:4" data-msg="Por favor, digite pelo menos 4 caracteres" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" id="text" name="text" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Por favor, digite pelo menos 8 caracteres de assunto" />
                   <div class="validation"></div>
                 </div>
-                <div class="text-center"><button type="submit" title="Send Message">Send Message</button></div>
+                <div class="form-group">
+                  <textarea class="form-control" id="text" name="text" rows="5" data-rule="required" data-msg="Por favor, escreva algo para nós." placeholder="Como podemos te ajudar..."></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit" title="Send Message">Envie sua menssagem</button></div>
               </form>
             </div>
             
@@ -887,31 +886,27 @@
       mobile.href= 'https://web.whatsapp.com/send?phone=5511970510672&text=Olá, poderia me ajudar?'   
     }
 
-
-
-
       $("form").on("submit", e => {
         e.preventDefault();
 
-        const email = $("#email")
-          .val()
-          .trim();
-        const subject = $("#subject")
-          .val()
-          .trim();
-        const text = $("#text")
-          .val()
-          .trim();
+        const name    = $("#name").val().trim();
+        const email   = $("#email").val().trim();
+        const empresa = $("#empresa").val().trim();
+        const subject = $("#subject").val().trim();
+        const text    = $("#text").val().trim();
 
         const data = {
+          name,
           email,
+          empresa,
           subject,
           text
         };
 
         $.post("/email", data)
           .then(() => {
-            window.location.href = "/email/sent";
+            //window.location.href = "/email/sent";
+            window.alert("Email enviado com sucesso!")
           })
           .catch(() => {
             window.location.href = "/error";
