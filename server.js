@@ -67,4 +67,4 @@ app.get('/email/sent', (req, res) => {
 */
 
 // Start server
-//app.listen(PORT, () => log('Server is starting on PORT, ', 8080));
+app.listen(PORT, () => log('Server is starting on PORT, ', 8080));
